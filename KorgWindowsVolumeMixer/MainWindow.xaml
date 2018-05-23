@@ -1,0 +1,14 @@
+﻿<Window x:Class="KorgWindowsVolumeMixer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KorgWindowsVolumeMixer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525" Closing="Window_Closing">
+    <Grid>
+        <ListBox x:Name="midiDeviceBox" HorizontalAlignment="Left" Height="100" Margin="65,92,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="midiConnectButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="170,92,0,0" Click="midiConnectButton_Click"/>
+
+    </Grid>
+</Window>
