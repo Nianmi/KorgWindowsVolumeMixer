@@ -13,6 +13,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Sanford.Multimedia;
 using Sanford.Multimedia.Midi;
+using System.Diagnostics;
 
 namespace KorgWindowsVolumeMixer
 {
@@ -29,7 +30,7 @@ namespace KorgWindowsVolumeMixer
             midiInit();
            
         }
-
+         
         public void midiInit()
         {
             for (var i = 0; i < InputDevice.DeviceCount; i++)
@@ -89,6 +90,29 @@ namespace KorgWindowsVolumeMixer
             {
                 midiInDevice.StopRecording();
                 midiInDevice.Close();
+            }
+        }
+
+        private void pipFillButton_Click(object sender, RoutedEventArgs e)
+        {
+            pipListBox.Items.Clear();
+            foreach (int i in AudioManager.getAllAudioSessions())
+            {
+                pipListBox.Items.Add(i);
+            }
+
+        }
+
+        private void debug_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Process process = Process.GetProcessById((int)pipListBox.SelectedItem);
+                Console.WriteLine(process.MainWindowTitle);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("An error occurred: '{0}'", ex);
             }
         }
     }

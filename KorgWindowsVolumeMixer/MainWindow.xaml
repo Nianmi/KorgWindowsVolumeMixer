@@ -7,8 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525" Closing="Window_Closing">
     <Grid>
-        <ListBox x:Name="midiDeviceBox" HorizontalAlignment="Left" Height="100" Margin="65,92,0,0" VerticalAlignment="Top" Width="100"/>
-        <Button x:Name="midiConnectButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="170,92,0,0" Click="midiConnectButton_Click"/>
+        <ListBox x:Name="midiDeviceBox" HorizontalAlignment="Left" Height="100" Margin="10,5,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="midiConnectButton" Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="115,5,0,0" Click="midiConnectButton_Click"/>
+        <ListBox x:Name="pipListBox" HorizontalAlignment="Left" Height="100" Margin="10,110,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="pipFillButton" Content="Button" HorizontalAlignment="Left" Margin="115,110,0,0" VerticalAlignment="Top" Width="75" Click="pipFillButton_Click"/>
+        <Button x:Name="debug" Content="Button" HorizontalAlignment="Left" Margin="115,135,0,0" VerticalAlignment="Top" Width="75" Click="debug_Click"/>
+
 
     </Grid>
 </Window>
