@@ -71,17 +71,25 @@ namespace KorgWindowsVolumeMixer
             resultLow = e.Message.Message & bitMaskLowestByte;
             resultMidle = (e.Message.Message & bitMaskMidleByte) >> 8;
             resultHigh = (e.Message.Message & bitMaskHighByte) >> 16;
-            Console.WriteLine(resultLow.ToString("X") + " " + resultMidle.ToString("X") + " " + resultHigh.ToString("X"));
+            //Console.WriteLine(resultLow.ToString("X") + " " + resultMidle.ToString("X") + " " + resultHigh.ToString("X"));
 
             switch (resultMidle)
             {
+                case 0x00:
+                    masterVolumeSlider.Value = prozentConversion(resultHigh, 0x7F);
+                    break;
                 case 0x44:
-                    Console.WriteLine("Right Button");
+
                     break;
                 default:
-                    Console.WriteLine("Wrong Button");
+
                     break;
             }
+        }
+
+        private double prozentConversion(int value, int max)
+        {
+            return (100 * value) / max;
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -114,6 +122,11 @@ namespace KorgWindowsVolumeMixer
             {
                 Console.WriteLine("An error occurred: '{0}'", ex);
             }
+        }
+
+        private void masterVolumeSlider_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            AudioManager.SetMasterVolume((int)masterVolumeSlider.Value);
         }
     }
 }

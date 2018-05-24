@@ -17,15 +17,6 @@ namespace KorgWindowsVolumeMixer
         /// and: http://netcoreaudio.codeplex.com/
         /// </summary>
 
-       // static void Main(string[] args)
-      //  {
-        //    SetMasterVolume(20);
-
-       //     SetApplicationVolume(2300, 50);
-
-            //Console.WriteLine(GetMasterVolume.ToString());
-       // }
-
         #region Master Volume Manipulation
 
         /// <summary>
